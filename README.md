@@ -250,3 +250,37 @@ Response:
   "timestamp": "2025-10-22T16:00:00.000Z"
 }
 ```
+
+---
+🗄️ Database
+
+SQLite is used for local persistent storage.
+
+The database file (data.db) is automatically created in the project root when the server starts for the first time.
+
+Each string record is uniquely identified by its SHA-256 hash.
+
+---
+🌐 Deployment Notes
+
+This service can be hosted on:
+
+Railway
+
+Heroku
+
+AWS EC2
+
+Pxxl App
+
+Render (❌ Forbidden for this cohort)
+
+Ensure your deployment exposes the correct base URL and environment variables (PORT).
+
+---
+
+👤 Author
+
+Full Name: ATTOH ALEXANDER IFEANYICHUKWU
+Email: alexander.attoh22@gmail.com
+Stack: Node.js / TypeScript / Express.js
