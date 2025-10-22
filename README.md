@@ -105,7 +105,7 @@ PORT=5000
 
 You can modify the port number as needed.
 
-###4️⃣ Run the project
+### 4️⃣ Run the project
 Development
 ```bash
 npm run dev
