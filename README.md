@@ -125,7 +125,8 @@ Response (201 Created):
     "sha256_hash": "abc123...",
     "character_frequency_map": {
       "s": 2,
-      "t": 3
+      "t": 3,
+      ...
     }
   },
   "created_at": "2025-08-27T10:00:00Z"
