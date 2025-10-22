@@ -78,3 +78,24 @@ cd <your-repo-name>
 npm install
 ```
 
+###3️⃣ Configure environment variables
+
+Create a .env file in the root directory (already included in this project):
+
+```bash
+PORT=5000
+```
+
+You can modify the port number as needed.
+
+###4️⃣ Run the project
+Development
+```bash
+npm run dev
+```
+
+Production
+```bash
+npm run build
+npm start
+```
