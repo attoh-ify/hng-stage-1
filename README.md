@@ -78,7 +78,24 @@ cd <your-repo-name>
 npm install
 ```
 
-###3️⃣ Configure environment variables
+Dependencies
+- better-sqlite3@^12.4.1
+- cors@^2.8.5
+- dotenv@^17.2.3
+- express@^5.1.0
+- express-rate-limit@^8.1.0
+- nodemon@^3.1.10
+- ts-node@^10.9.2
+- winston@^3.18.3
+
+Dev Dependencies
+- @types/better-sqlite3@^7.6.13
+- @types/cors@^2.8.19
+- @types/express@^5.0.3
+- @types/node@^24.8.1
+- typescript@^5.9.3
+
+### 3️⃣ Configure environment variables
 
 Create a .env file in the root directory (already included in this project):
 
