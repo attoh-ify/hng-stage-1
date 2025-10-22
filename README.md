@@ -46,20 +46,20 @@ For each analyzed string, the service computes and stores:
 
 ## 📁 Project Structure
 
-├── api/
-│ ├── controller.ts # Main logic for each endpoint
-│ ├── db.ts # Database initialization and queries
-│ └── route.ts # API route definitions
-│
-├── middleware/
-│ ├── logger.ts # Winston-based logging setup
-│ └── rate-limiter.ts # Request rate limiting
-│
-├── utils/
-│ └── helper_functions.ts # Utility functions for string analysis
-│
-└── index.ts # Server entry point
-.env # Environment variables
+- ├── api/
+- │ ├── controller.ts # Main logic for each endpoint
+- │ ├── db.ts # Database initialization and queries
+- │ └── route.ts # API route definitions
+- │
+- ├── middleware/
+- │ ├── logger.ts # Winston-based logging setup
+- │ └── rate-limiter.ts # Request rate limiting
+- │
+- ├── utils/
+- │ └── helper_functions.ts # Utility functions for string analysis
+- │
+- └── index.ts # Server entry point
+- .env # Environment variables
 
 
 
