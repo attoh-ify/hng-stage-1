@@ -281,6 +281,6 @@ Ensure your deployment exposes the correct base URL and environment variables (P
 
 👤 Author
 
-Full Name: ATTOH ALEXANDER IFEANYICHUKWU
-Email: alexander.attoh22@gmail.com
-Stack: Node.js / TypeScript / Express.js
+- Full Name: ATTOH ALEXANDER IFEANYICHUKWU
+- Email: alexander.attoh22@gmail.com
+- Stack: Node.js / TypeScript / Express.js
