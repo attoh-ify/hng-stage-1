@@ -99,3 +99,154 @@ Production
 npm run build
 npm start
 ```
+
+## 🧠 API Endpoints
+### 1. Analyze & Store a String
+
+POST /strings
+
+Request Body:
+```json
+{
+  "value": "string to analyze"
+}
+```
+
+Response (201 Created):
+```json
+{
+  "id": "sha256_hash_value",
+  "value": "string to analyze",
+  "properties": {
+    "length": 16,
+    "is_palindrome": false,
+    "unique_characters": 12,
+    "word_count": 3,
+    "sha256_hash": "abc123...",
+    "character_frequency_map": {
+      "s": 2,
+      "t": 3
+    }
+  },
+  "created_at": "2025-08-27T10:00:00Z"
+}
+```
+
+Errors:
+
+400 Bad Request: Missing or invalid "value" field
+
+409 Conflict: String already exists
+
+422 Unprocessable Entity: Value is not a string
+
+### 2. Get a Specific String
+
+GET /strings/{string_value}
+
+Response (200 OK):
+```json
+{
+  "id": "sha256_hash_value",
+  "value": "requested string",
+  "properties": { /* computed properties */ },
+  "created_at": "2025-08-27T10:00:00Z"
+}
+```
+
+Error:
+
+404 Not Found: String not found
+
+### 3. Get All Strings (With Filtering)
+
+```bash
+GET /strings?is_palindrome=true&min_length=5&max_length=20&word_count=2&contains_character=a
+```
+
+Response (200 OK):
+```json
+{
+  "data": [ /* array of string objects */ ],
+  "count": 15,
+  "filters_applied": {
+    "is_palindrome": true,
+    "min_length": 5,
+    "max_length": 20,
+    "word_count": 2,
+    "contains_character": "a"
+  }
+}
+```
+
+Error:
+
+400 Bad Request: Invalid filter types or values
+
+### 4. Natural Language Filtering
+
+```bash
+GET /strings/filter-by-natural-language?query=all%20single%20word%20palindromic%20strings
+```
+
+Example Queries Supported:
+
+- all single word palindromic strings
+
+- strings longer than 10 characters
+
+- palindromic strings that contain the first vowel
+
+- strings containing the letter z
+
+Response (200 OK):
+```json
+{
+  "data": [ /* matching strings */ ],
+  "count": 3,
+  "interpreted_query": {
+    "original": "all single word palindromic strings",
+    "parsed_filters": {
+      "word_count": 1,
+      "is_palindrome": true
+    }
+  }
+}
+```
+
+Errors:
+
+400 Bad Request: Unable to parse query
+
+422 Unprocessable Entity: Conflicting or invalid filters
+
+### 5. Delete a String
+
+```bash
+DELETE /strings/{string_value}
+```
+
+Response (204 No Content):
+
+```bash
+(no content)
+```
+
+Error:
+
+404 Not Found: String does not exist
+
+### 6. Health Check
+
+```bash
+GET /health
+```
+
+Response:
+
+```json
+{
+  "status": "ok",
+  "timestamp": "2025-10-22T16:00:00.000Z"
+}
+```
