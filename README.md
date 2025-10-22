@@ -137,7 +137,7 @@ Errors:
 
 400 Bad Request: Missing or invalid "value" field
 
-409 Conflict: String already exists
+409 Conflict: String already exists in the system
 
 422 Unprocessable Entity: Value is not a string
 
@@ -157,7 +157,7 @@ Response (200 OK):
 
 Error:
 
-404 Not Found: String not found
+404 Not Found: String does not exist in the system
 
 ### 3. Get All Strings (With Filtering)
 

@@ -80,29 +80,29 @@ export interface NaturalLanguageResult {
 };
 
 export function parseNaturalLanguageQuery(q: string): NaturalLanguageResult {
-    if (!q) return { ok: false, error: "Empty query" };
-    const lower = q.toLowerCase();
-    const parsed: Record<string, any> = {};
+  if (!q) return { ok: false, error: "Empty query" };
+  const lower = q.toLowerCase();
+  const parsed: Record<string, any> = {};
 
-    if (/single[-\s]*word/.test(lower) || /one[-\s]*word/.test(lower))
-        parsed.word_count = 1;
+  if (/single[-\s]*word/.test(lower) || /one[-\s]*word/.test(lower))
+    parsed.word_count = 1;
 
-    if (/\bpalindrom(e|ic|romic)?\b/.test(lower))
-        parsed.is_palindrome = true;
+  if (/\bpalindrom(e|ic|romic)?\b/.test(lower))
+    parsed.is_palindrome = true;
 
-    const longerMatch = lower.match(/longer than (\d+)\s*characters?/);
-    if (longerMatch)
-        parsed.min_length = Number(longerMatch[1]) + 1;
+  const longerMatch = lower.match(/longer than (\d+)\s*characters?/);
+  if (longerMatch)
+    parsed.min_length = Number(longerMatch[1]) + 1;
 
-    const containsLetter = lower.match(/contains?(?: the)? letter ([a-z])/);
-    if (containsLetter)
-        parsed.contains_character = containsLetter[1];
+  const containsLetter = lower.match(/\b(?:contain(?:s|ing)?|with)(?: the)? letter ([a-z])/i);
+  if (containsLetter)
+    parsed.contains_character = containsLetter[1];
 
-    if (/first vowel/.test(lower))
-        parsed.contains_character = "a";
+  if (/first vowel/.test(lower))
+    parsed.contains_character = "a";
 
-    if (Object.keys(parsed).length === 0)
-        return { ok: false, error: "No recognizable filters" };
+  if (Object.keys(parsed).length === 0)
+    return { ok: false, error: "No recognizable filters" };
 
-    return { ok: true, parsed };
-};
+  return { ok: true, parsed };
+}
